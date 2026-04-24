@@ -74,7 +74,7 @@ function peckishScriptExternal() {
 			let buildsInterval;
 			window.addEventListener("keydown", (e) => {
 				if (e.code === "Space" && !e.repeat) {
-					e.preventDefault();
+					// e.preventDefault();
 					e.stopImmediatePropagation();
 					log("spacebar down");
 					// call sendBuilds right now cuz the interval skips the first iteration and only runs after x ms
@@ -241,8 +241,11 @@ function peckishScriptExternal() {
 			doTheAiming();
 		}
 		// execute script features
-		AUTOSPIKE();
-		AIMBOT();
+		if(!user.chat.open && !user.terminal.open){
+
+			AUTOSPIKE();
+			AIMBOT();
+		}
 	}
 	/* hooking logic */
 	let hookingInterval;
